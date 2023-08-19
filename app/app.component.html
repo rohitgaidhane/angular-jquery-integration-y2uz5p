@@ -1,0 +1,44 @@
+scale
+<select
+  [(ngModel)]="scaleValue"
+  name="scaleValue"
+  (change)="changeScale('scale')"
+  id="ScalingSelect"
+>
+  <option value="Any" selected="selected" ddindex="0">Any scaling</option>
+  <option
+    *ngFor="let scale of optionsStoreScaling; let i = index"
+    [value]="scale.SLOTList"
+    [attr.ddindex]="i + 1"
+  >
+    {{ scale.ScaleFactor }}
+  </option>
+</select>
+
+unit
+<select [(ngModel)]="unitValue" (change)="changeScale('unit')" id="UnitsSelect">
+  <option value="Any" selected="selected" ddindex="0">Any scaling</option>
+  <option
+    *ngFor="let uni of optionsStoreUnit; let i = index"
+    [value]="uni.SLOTList"
+    [attr.ddindex]="i + 1"
+  >
+    {{ uni.Units }}
+  </option>
+</select>
+
+quantity
+<select
+  [(ngModel)]="quantityValue"
+  (change)="changeScale('qty')"
+  id="TypeSelect"
+>
+  <option value="Any" selected="selected" ddindex="0">Any scaling</option>
+  <option
+    *ngFor="let qty of optionsStoreType; let i = index"
+    [value]="qty.SLOTList"
+    [attr.ddindex]="i + 1"
+  >
+    {{ qty.QuantityType }}
+  </option>
+</select>
